@@ -18,8 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'reassemble_tcp'
 
+    ReassembleTcp.tcp_data_stream('some.pcap') {|t, from, to, data|
+      puts "[#{t.strftime("%Y/%m/%d %H:%M:%S.%6N")} #{from} -> #{to}"
+      puts data[0..100]
+      puts
+    }
 ## Contributing
 
 1. Fork it
