@@ -1,14 +1,19 @@
 # ReassembleTcp
 
-TODO: Write a gem description
+Ruby gem for reassembling TCP fragment data from pcap file like Wireshark.
+
+See: http://wiki.wireshark.org/TCP_Reassembly
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'reassemble_tcp'
+```ruby
+gem 'reassemble_tcp'
+```
 
 And then execute:
+
 
     $ bundle
 
@@ -18,13 +23,15 @@ Or install it yourself as:
 
 ## Usage
 
-    require 'reassemble_tcp'
+```ruby
+require 'reassemble_tcp'
 
-    ReassembleTcp.tcp_data_stream('some.pcap') {|t, from, to, data|
-      puts "[#{t.strftime("%Y/%m/%d %H:%M:%S.%6N")} #{from} -> #{to}"
-      puts data[0..100]
-      puts
-    }
+ReassembleTcp.tcp_data_stream('some.pcap') {|t, from, to, data|
+  puts "[#{t.strftime("%Y/%m/%d %H:%M:%S.%6N")} #{from} -> #{to}"
+  puts data[0..100]
+  puts
+}
+```
 ## Contributing
 
 1. Fork it
