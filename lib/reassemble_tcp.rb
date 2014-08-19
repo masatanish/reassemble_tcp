@@ -40,7 +40,6 @@ module ReassembleTcp
       conn.tcpdata do |range, dir, data|
         next if data.nil? || data.empty?
         from, to = (dir == :send ) ? [src, dst] : [dst, src]
-        p range.last
         etime = Time.at(range.last)
         stream_data[etime] = [from, to, data]
       end
